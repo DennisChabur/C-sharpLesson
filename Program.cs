@@ -1,15 +1,16 @@
-﻿// Задача 13. Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет
-Console.WriteLine("Input your XXX number plz");
-int thirdNumberInput = Convert.ToInt32(Console.ReadLine()) / 100;
-// if (thirdNumberInput == 0);
-// {
-//     System.Console.WriteLine("There is no 3rd number");
-// }
-if (thirdNumberInput == 0)
+﻿// Задача 15.  Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным
+Console.WriteLine("Input a number of a day of the week plz");
+int dayNumberInput = Convert.ToInt32(Console.ReadLine());
+
+if (dayNumberInput == 6 || dayNumberInput == 7)
 {
-    System.Console.WriteLine("There's no 3rd number");
+    System.Console.WriteLine("Yeeeeees. It's holyday man");
 }
-else
+else if (dayNumberInput >= 1 && dayNumberInput <= 3 )
 {
-    System.Console.WriteLine("3rd number is " + thirdNumberInput);
+    System.Console.WriteLine("Nope. It's not even tuesday. Keep on work and suffer");
+}
+else if (dayNumberInput >= 4 && dayNumberInput <= 5)
+{
+    System.Console.WriteLine("Nope. But it's the end of the week actually. Cheer up and prepare a beer bro.");
 }
