@@ -1,35 +1,23 @@
-﻿// Task19 Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом
+﻿/* Task19 Напишите программу, которая принимает на вход координаты двух точек 
+и находит расстояние между ними в 3D пространстве */
 
 Console.Clear();
-string a = Console.ReadLine();
 
-int i = 0, j = 4;
-bool flag = true;
-while( i != j)
-{
-    if (a[i] == a[j])
-    {
-        i++; j--; continue;
-    }
-    else
-    {
-        flag = false; break;
-    }
-}
-if (flag)
-{
-    System.Console.WriteLine("It's a palindrome");
-}
-else
-{
-    System.Console.WriteLine("It's not a palindrome");
-}
+int x1, y1, z1, x2, y2, z2;
 
-// if (a[0] == a[4] && a[1] == a[3])
-// {
-//     System.Console.WriteLine("Yes");
-// }
-// else
-// {
-//     System.Console.WriteLine("No");
-// }
+System.Console.WriteLine("input x1");
+int.TryParse(Console.ReadLine()!, out x1);
+System.Console.WriteLine("input y1");
+int.TryParse(Console.ReadLine()!, out y1);
+System.Console.WriteLine("input z1");
+int.TryParse(Console.ReadLine()!, out z1);
+System.Console.WriteLine("input x2");
+int.TryParse(Console.ReadLine()!, out x2);
+System.Console.WriteLine("input y2");
+int.TryParse(Console.ReadLine()!, out y2);
+System.Console.WriteLine("input z2");
+int.TryParse(Console.ReadLine()!, out z2);
+
+double cube = Math.Pow((x1-x2), 2)+Math.Pow((y1-y2), 2)+Math.Pow((z1-z2), 2);
+double L = Math.Sqrt(cube);
+System.Console.WriteLine(L);
