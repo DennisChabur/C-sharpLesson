@@ -3,33 +3,33 @@
 Console.Clear();
 string a = Console.ReadLine();
 
-// int i = 0, j = 4;
-// bool flag = true;
-// while( i != j)
-// {
-//     if (a[i] == a[j])
-//     {
-//         continue;
-//     }
-//     else
-//     {
-//         flag = false;
-//     }
-// }
-// if (flag)
-// {
-//     System.Console.WriteLine("It's a palindrome");
-// }
-// else
-// {
-//     System.Console.WriteLine("It's not a palindrome");
-// }
-
-if (a[0] == a[4] && a[1] == a[3])
+int i = 0, j = 4;
+bool flag = true;
+while( i != j)
 {
-    System.Console.WriteLine("Yes");
+    if (a[i] == a[j])
+    {
+        i++; j--; continue;
+    }
+    else
+    {
+        flag = false; break;
+    }
+}
+if (flag)
+{
+    System.Console.WriteLine("It's a palindrome");
 }
 else
 {
-    System.Console.WriteLine("No");
+    System.Console.WriteLine("It's not a palindrome");
 }
+
+// if (a[0] == a[4] && a[1] == a[3])
+// {
+//     System.Console.WriteLine("Yes");
+// }
+// else
+// {
+//     System.Console.WriteLine("No");
+// }
