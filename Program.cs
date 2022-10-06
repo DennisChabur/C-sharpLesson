@@ -1,16 +1,35 @@
-﻿// Задача 15.  Напишите программу, которая принимает на вход цифру, обозначающую день недели, и проверяет, является ли этот день выходным
-Console.WriteLine("Input a number of a day of the week plz");
-int dayNumberInput = Convert.ToInt32(Console.ReadLine());
+﻿// Task19 Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом
 
-if (dayNumberInput == 6 || dayNumberInput == 7)
+Console.Clear();
+string a = Console.ReadLine();
+
+// int i = 0, j = 4;
+// bool flag = true;
+// while( i != j)
+// {
+//     if (a[i] == a[j])
+//     {
+//         continue;
+//     }
+//     else
+//     {
+//         flag = false;
+//     }
+// }
+// if (flag)
+// {
+//     System.Console.WriteLine("It's a palindrome");
+// }
+// else
+// {
+//     System.Console.WriteLine("It's not a palindrome");
+// }
+
+if (a[0] == a[4] && a[1] == a[3])
 {
-    System.Console.WriteLine("Yeeeeees. It's holyday man");
+    System.Console.WriteLine("Yes");
 }
-else if (dayNumberInput >= 1 && dayNumberInput <= 3 )
+else
 {
-    System.Console.WriteLine("Nope. It's not even tuesday. Keep on work and suffer");
-}
-else if (dayNumberInput >= 4 && dayNumberInput <= 5)
-{
-    System.Console.WriteLine("Nope. But it's the end of the week actually. Cheer up and prepare a beer bro.");
+    System.Console.WriteLine("No");
 }
