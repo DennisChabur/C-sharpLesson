@@ -1,16 +1,21 @@
-﻿/* Task23 Напишите программу, которая принимает на вход число (N) 
-и выдаёт таблицу кубов чисел от 1 до N */
+﻿/* Задача 25: Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+3, 5 -> 243 (3⁵)
+2, 4 -> 16 */
 
-Console.Clear();
-int N;
-System.Console.WriteLine("Input number of cubes");
-int.TryParse(System.Console.ReadLine()!, out N);
+int A = 0, B = 0;
 
-for (int i = 1; i <= N; i++)
+System.Console.WriteLine("Input A");
+int.TryParse(Console.ReadLine()!, out A);
+System.Console.WriteLine("Input B");
+int.TryParse(Console.ReadLine()!, out B);
+
+void Power(int A, int B)
 {
-    System.Console.Write($"{Math.Pow(i, 3)}");
-    if (i < N)
-    {System.Console.Write(", ");}
-    else
-    {continue;}
+    int pow = 1;
+    for (int i = 0; i < B; i++)
+    {
+        pow *= A;
+    }
+    System.Console.WriteLine($"The number you are looking for is {pow}");
 }
+Power(A, B);
