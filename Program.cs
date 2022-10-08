@@ -1,21 +1,22 @@
-﻿/* Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
-452 -> 11
-82 -> 10
-9012 -> 12 */
+﻿/* Задача 29: Напишите функцию, которая задаёт массив из 8 элементов и выводит их на экран.
+1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+6, 1, 33 -> [6, 1, 33] */
 
-int N = 0;
 
-System.Console.WriteLine("Input N");
-int.TryParse(Console.ReadLine()!, out N);
+int[] array;
 
-void Sum(int _N)
+array = Array();
+for (int i=0; i<array.Length; i++)
+    Console.Write($"{array[i]} ");
+
+int[] Array()
 {
-    int res = 0;
-    for (int i = 0; i < N; i++)
+    int[] _array = new int[8];
+    
+    for (int i = 0; i < 8; i++)
     {
-        res += N % 10;
-        N /= 10;
+        _array[i] = new Random().Next(0, 100);
     }
-    System.Console.WriteLine($"The summ of your number is {res}");
+    return _array;
+    
 }
-Sum(N);
