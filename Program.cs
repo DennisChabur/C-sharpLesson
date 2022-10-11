@@ -1,23 +1,34 @@
-﻿/*Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
-[3, 7, 23, 12] -> 19
-[-4, -6, 89, 6] -> 0 */
+﻿/*Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
+[3 7 22 2 78] -> 76 */
 
-int[] array = CreateArray(new Random().Next(0, 10), -1000, 1000);
+double[] array = CreateArray(new Random().Next(0, 10), -1000, 1000);
 
 PrintArray(array);
 
-int summ = 0;
-for (int i=1; i < array.Length; i+=2)
+
+double summ = 0;
+double max = 0;
+double min = 0;
+double temp = 0;
+
+for (int i=0; i < array.Length; i++)
 {
-    summ += array[i];
+    if (array[i] < array[i+1])
+        temp = array[i];
+        
+    summ = max - min;
 }
 
 Console.WriteLine($"-> {summ}");
 
 
+
+
+
+
 // Create random array
 
-int[] CreateArray(int size, int min, int max)
+int[] CreateArray(int size, double min, double max)
 {
     int[] _array = new int[size];
     for (int i = 0; i < size; i++)
