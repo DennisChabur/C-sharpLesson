@@ -1,47 +1,20 @@
-﻿/*Задача 38: Задайте массив вещественных чисел. Найдите разницу между максимальным и минимальным элементов массива.
-[3 7 22 2 78] -> 76 */
+﻿/*Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
+0, 7, 8, -2, -2 -> 2
+1, -7, 567, 89, 223-> 3 */
+using System;
+using System.Collections.Generic;
 
-int[] array = CreateArray(new Random().Next(0, 10), -1000, 1000);
+int M;
+bool stop = true;
+List<int> i = new List<int>();
+int num = 0;
+while (stop)                                                   // Цикл, с флагом
+    System.Console.WriteLine("Input your number");      // Просим пользователя ввести число
+    if (int.TryParse(Console.ReadLine()!, out M))   // Если введенное можем перевести в int, то ...
+    {
+        if (M > 0) num += 1;                                   // Если М положительное, то счетчик +1
+        i.Add(M);                                        // В любом случае, добавляем значение М к списку
+    }
+    else stop = false;                                         // Но если введено не число, то stop = false, значит зикл завершается
 
-PrintArray(array);
-
-
-int summ = 0;
-int max = array[0];
-int min = array[0];
-
-for (int i=0; i < array.Length; i++)
-{
-    if (array[i] > max)
-        max = array[i];
-    else if (array[i] < min)
-        min = array[i];
-    else continue;
-}      
-summ = max - min;
-Console.WriteLine($"{max} - {min} = {summ}");
-Console.WriteLine($"-> {summ}");
-
-
-
-
-
-
-// Create random array
-
-int[] CreateArray( int size, int min, int max)
-{
-    int[] _array = new int[size];
-    for (int i = 0; i < size; i++)
-        _array[i] = new Random().Next(min, max);
-    return _array;
-}
-
-void PrintArray(int[] _array)
-{
-    System.Console.Write("[");
-    foreach (var item in _array)
-        System.Console.Write($"{item} ");
-    System.Console.Write("]");
-    System.Console.WriteLine();
-}
+System.Console.WriteLine($"-> {num}");                  // Выводим счетчик
