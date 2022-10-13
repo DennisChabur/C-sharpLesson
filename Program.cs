@@ -1,20 +1,24 @@
-﻿/*Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-0, 7, 8, -2, -2 -> 2
-1, -7, 567, 89, 223-> 3 */
-using System;
-using System.Collections.Generic;
+﻿/*Задача 43: Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1,
+y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5) */
 
-int M;
-bool stop = true;
-List<int> i = new List<int>();
-int num = 0;
-while (stop)                                                   // Цикл, с флагом
-    System.Console.WriteLine("Input your number");      // Просим пользователя ввести число
-    if (int.TryParse(Console.ReadLine()!, out M))   // Если введенное можем перевести в int, то ...
-    {
-        if (M > 0) num += 1;                                   // Если М положительное, то счетчик +1
-        i.Add(M);                                        // В любом случае, добавляем значение М к списку
-    }
-    else stop = false;                                         // Но если введено не число, то stop = false, значит зикл завершается
+double x;
+double y;
+double b1; 
+double k1; 
+double b2; 
+double k2;
 
-System.Console.WriteLine($"-> {num}");                  // Выводим счетчик
+System.Console.WriteLine("Input b1");
+double.TryParse(Console.ReadLine()!, out b1);
+System.Console.WriteLine("Input k1");
+double.TryParse(Console.ReadLine()!, out k1);
+System.Console.WriteLine("Input b2");
+double.TryParse(Console.ReadLine()!, out b2);
+System.Console.WriteLine("Input k2");
+double.TryParse(Console.ReadLine()!, out k2);
+
+x = (b2-b1) / (k1-k2);
+y = k1 * x + b1;
+
+System.Console.WriteLine($"({x};{y})");
