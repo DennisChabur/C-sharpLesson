@@ -1,24 +1,19 @@
-﻿/*Задача 41: Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
-0, 7, 8, -2, -2 -> 2
-1, -7, 567, 89, 223-> 3 */
-using System;
-using System.Collections.Generic;
+﻿/* Задача 47. Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
+m = 3, n = 4.
+0,5 7 -2 -0,2
+1 -3,3 8 -9,9
+8 7,8 -7,1 9 */
 
-System.Console.WriteLine("Input numbers of inputed numbers");
-int Num;
-int.TryParse(Console.ReadLine()!, out Num);
-int count = 0;
-// int i = 0;
-List<int> list = new List<int>();
-for ( int i = 0; i < Num; i++)
+int m = 3;
+int n = 4;
+double[,] array = new double[m,n];
+
+for (int i = 0; i < m; i++)
 {
-    System.Console.WriteLine("Input number");
-    int numInput;
-    int.TryParse(Console.ReadLine()!, out numInput);
-    if (numInput > 0)   count += 1;
-    list.Add(numInput);
-    // i ++;
+    for (int j = 0; j < n; j++)
+    {
+        array[i,j] = (double) new Random().Next(-100, 100)/10;
+        Console.Write($"{array[i, j]} ");
+    }
+    Console.WriteLine();
 }
-foreach (var item in list)
-    System.Console.Write($"{item} ");
-System.Console.WriteLine($" -> {count}");
