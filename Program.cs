@@ -1,40 +1,66 @@
-﻿/* Задача 54: Задайте двумерный массив. Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
-Например, задан массив:
-1 4 7 2
-5 9 2 3
-8 4 2 4
-В итоге получается вот такой массив:
-7 4 2 1
-9 5 3 2
-8 4 4 2 */
+﻿/* Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с 
+наибольшей суммой элементов. */
+
+
 
 int m = 4, n = 5;
 int[,] array = new int[m, n];
+array = CreateArray(m, n);
+int[] sumArray = new int[m];
+
+Console.WriteLine();
 for (int i = 0; i < m; i++)
 {
+    int[] sum = new int[m];
     for (int j = 0; j < n; j++)
     {
-        array[i, j] = new Random().Next(10);
-        Console.Write($"{array[i, j]} ");
+        sum[i] += array[i, j];
     }
-    Console.WriteLine();
+    Console.Write($"| {sum[i]} |");
+    sumArray[i] = sum[i];
 }
 
-System.Console.WriteLine();
-for (int i = 0; i < m; i++)
+    int max = sumArray[0];
+    int l=0;
+for (int i = 1; i < m; i++)
 {
-    for (int j = 0; j < n; j++)
+
+    if (sumArray[i] > max)
     {
-        for (int j2 = 1; j2 < n-j; j2++)
-        {
-            if (array[i,j2-1] > array[i,j2])
-            {
-                int temp = array[i,j2];
-                array[i, j2] = array[i,j2-1];
-                array[i,j2-1] = temp;
-            }
-        }
-        System.Console.Write($"{array[i, j]} ");
+        max = sumArray[i];
+        l = i;
     }
-    System.Console.WriteLine();
+    
+}
+Console.Write($"The max sum is {max} im {l} line");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+int[,] CreateArray(int size_m, int size_n, int min = 0, int max = 10)
+{
+    int[,] _array = new int[size_m, size_n];
+    for (int i = 0; i < _array.GetLength(0); i++)
+    {
+        for (int j = 0; j < _array.GetLength(1); j++)
+        {
+            _array[i, j] = new Random().Next(min, max);
+            Console.Write($"{_array[i, j]} ");
+        }
+        Console.WriteLine();
+    }
+    return _array;
 }
