@@ -25,14 +25,15 @@ for (int i = 0; i < m; i++)
 {
     for (int j = 0; j < n; j++)
     {
-        for (int j2 = 1; j2 < n-j; j2++)
+        for (int j2 = 0; j2 < n - 1; j2++)
         {
-            if (array[i,j2-1] > array[i,j2])
+            if (array[i, j2] < array[i, j2+1])
             {
-                int temp = array[i,j2];
-                array[i, j2] = array[i,j2-1];
-                array[i,j2-1] = temp;
+                int temp = array[i, j2+1];
+                array[i, j2+1] = array[i, j2];
+                array[i, j2] = temp;
             }
+            // else continue;
         }
         System.Console.Write($"{array[i, j]} ");
     }
