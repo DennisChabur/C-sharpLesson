@@ -1,52 +1,57 @@
-﻿/* Задача 56: Задайте прямоугольный двумерный массив. Напишите программу, которая будет находить строку с 
-наибольшей суммой элементов. */
+﻿/* Задача 58: Задайте две матрицы. Напишите программу, которая будет находить произведение двух матриц.
+Например, даны 2 матрицы:
+2 4 | 3 4
+3 2 | 3 3
+Результирующая матрица будет:
+18 20
+15 18 */
 
 
 
-int m = 4, n = 5;
-int[,] array = new int[m, n];
-array = CreateArray(m, n);
-int[] sumArray = new int[m];
+int m1 = 2, n1 = 3;
+int[,] array1 = new int[m1, n1];
+array1 = CreateArray(m1, n1);
+// PrintArray(array1);
+System.Console.WriteLine();
+
+int m2 = 3, n2 = 3;
+int[,] array2 = new int[m2, n2];
+array2 = CreateArray(m2, n2);
+// PrintArray(array2);
+System.Console.WriteLine();
+
+int[,] multiArray = new int[m1,n2];
+
 
 Console.WriteLine();
-for (int i = 0; i < m; i++)
+for (int i = 0; i < m1; i++)
 {
-    int[] sum = new int[m];
-    for (int j = 0; j < n; j++)
+    for (int j = 0; j < n2; j++)
     {
-        sum[i] += array[i, j];
+        
+        int sum = 0;
+        for (int k = 0; k < n1; k++)
+        {
+            sum += array1[i,k]*array2[k,j];
+        }
+        multiArray[i,j] = sum;
     }
-    Console.Write($"| {sum[i]} |");
-    sumArray[i] = sum[i];
 }
 
-    int max = sumArray[0];
-    int l=0;
-for (int i = 1; i < m; i++)
+PrintArray(multiArray);
+
+
+void PrintArray(int[,] _array)
 {
-
-    if (sumArray[i] > max)
+    for (int i = 0; i < _array.GetLength(0); i++)
     {
-        max = sumArray[i];
-        l = i;
+        for (int j = 0; j < _array.GetLength(1); j++)
+        {
+            Console.Write($"{_array[i,j]} ");
+        }
+        System.Console.WriteLine();
     }
-    
 }
-Console.Write($"The max sum is {max} im {l} line");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
