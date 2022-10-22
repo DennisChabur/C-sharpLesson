@@ -1,28 +1,19 @@
-﻿/* Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4.
-Например, на выходе получается вот такой массив:
-01 02 03 04
-12 13 14 05
-11 16 15 06
-10 09 08 07 */
+﻿/*Задача 64: Задайте значение N. Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
 
-int[,] array = new int[4, 4];
+N = 5 -> "5, 4, 3, 2, 1"
+N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"*/
 
-for (int i = 0, j = 0, t = 1; t <= array.GetLength(0) * array.GetLength(1); t++)
+int N;
+int.TryParse(Console.ReadLine()!, out N);
+
+PrintNum(N);
+
+void PrintNum(int Number)
 {
-    array[i, j] = t;
+    if (Number >= 1) 
+    {
+        Console.Write($"{Number} ");
+        PrintNum(Number-1);
+    }
 
-    if (i <= j + 1 && i + j < array.GetLength(1) - 1)
-        j++;
-    else if (i < j && i + j >= array.GetLength(0) - 1)
-        i++;
-    else if (i >= j && i + j > array.GetLength(1) - 1)
-        j--;
-    else
-        i--;
-}
-
-for (int i = 0; i < array.GetLength(0); i++)
-{
-    for (int j = 0; j < array.GetLength(1); j++) Console.Write($"{array[i,j]} ");
-    Console.WriteLine();
 }
