@@ -6,10 +6,12 @@ int M, N;
 int.TryParse(Console.ReadLine()!, out M);
 int.TryParse(Console.ReadLine()!, out N);
 
-void PrintSum(int m, int n, int sum=0)
+int PrintSum(int M, int N, int sum=0)
 {
-    sum = sum + m;
-    if (m <= n) Console.Write($" {sum} ");
-    PrintSum(m+1, n, sum);
+    if (M>N) return 0;
+
+    return M + PrintSum(M+1, N);
 
 }
+int Sum = PrintSum(M,N);
+System.Console.WriteLine($"{Sum}");
